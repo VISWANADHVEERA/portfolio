@@ -92,24 +92,47 @@
     <p>You can download my resume from the link below:</p>
     <a href="#" class="btn">Download Resume (Coming Soon)</a>
   </section>
-
   <section id="feedback">
-    
-    <h2>Feedback</h2>
-    <form id="feedback-form">
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" name="user_name" required />
+  <h2>Submit Feedback</h2>
+  <form id="feedback-form">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
 
-      <label for="email">Your Email:</label>
-      <input type="email" id="email" name="user_email" required />
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
 
-      <label for="message">Your Feedback:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+    <label for="message">Feedback:</label>
+    <textarea name="message" id="message" rows="5" required></textarea>
 
-      <button type="submit">Send Feedback</button>
-    </form>
-    <p id="form-status"></p>
- </section>
+    <button type="submit">Send Feedback</button>
+  </form>
+  <p id="form-status"></p>
+</section>
+
+<!-- EmailJS script -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS
+  (function () {
+    emailjs.init("uA93KIyjIBJq27960"); // Replace with your real Public Key
+  })();
+
+  // Handle form submission
+  document.getElementById("feedback-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("form-status").innerText = "Sending...";
+
+    emailjs.sendForm("service_9q9365k", "template_t1zxbvf", this)
+      .then(() => {
+        document.getElementById("form-status").innerText = "Feedback sent successfully!";
+        this.reset();
+      }, (error) => {
+        console.error("Failed to send:", error);
+        document.getElementById("form-status").innerText = "Failed to send feedback. Please try again.";
+      });
+  });
+</script>
+
 
 
   <section id="contact" class="section">
