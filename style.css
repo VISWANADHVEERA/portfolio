@@ -76,6 +76,57 @@ footer {
   margin-right: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
+/* Feedback Form Fields */
+#feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#feedback-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#feedback-form input,
+#feedback-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+#feedback-form input:focus,
+#feedback-form textarea:focus {
+  border-color: #003366;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.2);
+}
+
+#feedback-form button {
+  align-self: flex-start;
+  background-color: #003366;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#feedback-form button:hover {
+  background-color: #002244;
+}
+
+#form-status {
+  font-style: italic;
+  margin-top: 10px;
+  color: #333;
+}
+
 
 .intro-container {
   display: flex;
