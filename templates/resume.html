@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<div class="resume-card">
+  <div class="resume-header">
+      <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Photo" class="resume-profile">
+      <div>
+        <h1>Veera Teja Shesha Sai Viswanadh</h1>
+        <p class="resume-role">Fresher</p>
+        <p>
+          <i class="fa-solid fa-phone"></i> +91-7569051334<br>
+          <i class="fa-solid fa-envelope"></i> iaviswanadhveera@gmail.com
+        </p>
+        <div class="resume-links">
+          <a href="#">LinkedIn</a> |
+          <a href="#">GitHub</a> |
+          <a href="#">HackerRank</a> |
+          <a href="#">LeetCode</a> |
+          <a href="#">SalesForce</a> |
+          <a href="#">CodeChef</a>
+        </div>
+      </div>
+  </div>
+  <hr>
+
+  <section>
+    <h2><i class="fa-solid fa-star"></i> Skills</h2>
+    <ul class="plain-list">
+      <li>Python, SQL, Python Libraries, HTML, CSS</li>
+    </ul>
+    <div class="resume-subsection">Problem Solving: <span>HackerRank, LeetCode, CodeChef</span></div>
+    <div class="resume-subsection">Salesforce Development: <span>Apex, SOQL, SOSL, Lightning Web Components (LWC), Triggers, Flows, Validation Rules, Process Builder, OOP, CRM Customization</span></div>
+  </section>
+  <hr>
+  
+  <section>
+    <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+    <ul class="plain-list">
+      <li><b>B.TECH, ECE:</b> Pragati Engineering College, 2022-2026 (Surampalem), CGPA: 7.01</li>
+      <li><b>Intermediate, MPC:</b> Sasi Junior College, 2020-2022 (Velivennu), Percentage: 88.4%</li>
+      <li><b>SSC:</b> Vidyanidhi IIT Talent School, 2019-2020 (Amalapuram), CGPA: 10</li>
+    </ul>
+  </section>
+  <hr>
+
+  <section>
+    <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
+    <ul class="plain-list">
+      <li><b>Traffic Accident Patterns Analysis</b><br>
+      (Python, Pandas, Matplotlib, Seaborn)<br>
+      Performed exploratory data analysis on a real-world traffic accident dataset to identify high-risk locations, time-based patterns, and contributing factors such as weather, road conditions, and accident causes. Applied data cleaning, transformation, grouping, filtering, and aggregation techniques to extract meaningful insights. Developed visualizations to communicate findings and support recommendations for improving road safety.
+      </li>
+      <li><b>GitHub Portfolio</b><br>
+      (HTML, CSS, JavaScript)<br>
+      A fully responsive personal portfolio website designed to showcase my education, technical skills, internships, and projects.<br>
+      Links: <a href="#">GitHub</a> | <a href="#">Website</a>
+      </li>
+    </ul>
+  </section>
+  <hr>
+
+  <section>
+    <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
+    <ul class="plain-list">
+      <li><b>Salesforce Certified Platform Developer</b>: October 2025<br>
+          Certification ID: 6822134 – <a href="#">Verify</a>
+      </li>
+      <li><b>Python for Data Science</b>: NPTEL, August 2025<br>
+          Roll No: 16331
+      </li>
+    </ul>
+  </section>
+  <hr>
+  
+  <section>
+    <h2><i class="fa-solid fa-laptop-code"></i> Virtual Internships</h2>
+    <ul class="plain-list">
+      <li><b>Python Fullstack Developer (Jul–Sep 2025)</b><br>
+      Gained end-to-end experience in full-stack development, building scalable web apps using Python (Django/Flask), relational databases, and front-end technologies. Developed and deployed a real-world project, demonstrating proficiency in Git and collaborative development under industry mentorship.
+      </li>
+      <li><b>Data Analysis Using Python (Apr–Jun 2025)</b><br>
+      Completed a virtual internship in Data Analysis using Python as part of the Summer Online Internship Program - 2025, gaining practical skills through APSSDC.
+      </li>
+      <li><b>AWS Data Engineering Virtual Internship (Apr–Jun 2025)</b><br>
+      Learned key data engineering concepts using AWS tools like S3, Glue, Redshift, and Athena. Built data pipelines, transformed data, and analyzed datasets on AWS cloud platform.
+      </li>
+    </ul>
+  </section>
+  <div class="download-resume-section" style="text-align: center; margin-top: 32px;">
+    <a href="{{ url_for('static', filename='RESUME (3).pdf') }}" class="download-btn" download>
+        <i class="fa fa-download"></i> Download Resume
+    </a>
+  </div>
+
+</div>
+{% endblock %}

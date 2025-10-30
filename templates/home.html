@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="about-section">
+    <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Photo" class="profile-photo">
+    <h2>About Me</h2>
+    <p>
+        Hello, I'm Veera Teja Shesha Sai Viswanadh, a fresher passionate about web development, data analysis, and Salesforce customization.
+    </p>
+    <b>Phone:</b> +91-7569051334 <br>
+    <b>Email:</b> iaviswanadhveera@gmail.com
+    <div class="profile-buttons">
+        <a href="http://www.linkedin.com/in/veera-teja-shesha-sai-viswanadh-0a79b2259" target="_blank" class="profile-btn">LinkedIn</a>
+        <a href="https://github.com/VISWANADHVEERA" target="_blank" class="profile-btn">GitHub</a>
+        <a href="https://www.hackerrank.com/profile/iamviswanadhvee1" target="_blank" class="profile-btn">HackerRank</a>
+        <a href="https://leetcode.com/u/VISWANADH_VEERA/" target="_blank" class="profile-btn">LeetCode</a>
+        <a href="https://www.salesforce.com/trailblazer/veeratejasheshasaiviswanadh3961" target="_blank" class="profile-btn">Salesforce</a>
+        <a href="https://www.codechef.com/users/viswanadhveera" target="_blank" class="profile-btn">CodeChef</a>
+    </div>
+</section>
+{% endblock %}

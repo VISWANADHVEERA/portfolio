@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="contact-section">
+  <h2>Contact</h2>
+  <ul>
+    <li><b>Phone:</b> +91-7569051334</li>
+    <li><b>Email:</b> iaviswanadhveera@gmail.com</li>
+    <!-- Add your profile links as before -->
+  </ul>
+  <h3>Feedback</h3>
+  <form method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="feedback" placeholder="Enter feedback..." required></textarea><br>
+    <button type="submit">Send Feedback</button>
+  </form>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert {{category}}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</section>
+{% endblock %}

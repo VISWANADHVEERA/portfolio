@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Veera Teja Shesha Sai Viswanadh Portfolio</title>
+    <link rel="icon" href="{{ url_for('static', filename='profile.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+      /* Ensure canvas never blocks content */
+      #bg-canvas {
+          position: fixed;
+          top: 0; left: 0; z-index: 0;
+          width: 100vw;
+          height: 100vh;
+          pointer-events: none;
+      }
+    </style>
+</head>
+<body class="light">
+    <canvas id="bg-canvas"></canvas>
+    <header>
+        <div class="header-name">Veera Teja Shesha Sai Viswanadh</div>
+        <div class="header-role">Fresher</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('skills') }}">Skills</a>
+            <a href="{{ url_for('education') }}">Education</a>
+            <a href="{{ url_for('resume') }}">Resume</a>
+            <a href="{{ url_for('internships') }}">Internships</a>
+            <a href="{{ url_for('projects') }}">Projects</a>
+            <a href="{{ url_for('certifications') }}">Certifications</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="mode-button">🌙 Dark Mode</button>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <!-- Animated 3D balls JS below -->
+    <script>
+        // Mode Switch
+        const btn = document.getElementById('theme-toggle');
+        btn.onclick = function () {
+            document.body.classList.toggle('dark');
+            document.body.classList.toggle('light');
+            btn.textContent = document.body.classList.contains('dark') ? '🌞 Light Mode' : '🌙 Dark Mode';
+        };
+        window.onload = function () {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.remove('light');
+                document.body.classList.add('dark');
+                btn.textContent = '🌞 Light Mode';
+            }
+        };
+
+        // 3D Falling Balls Animation
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let balls = [];
+        let width, height;
+
+        function resizeCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        function Ball() {
+            this.x = Math.random() * width;
+            this.y = -20 - Math.random() * 80;
+            this.radius = 14 + Math.random() * 10;
+            this.speed = 2 + Math.random() * 3;
+            this.colorLight = 'rgba(25,125,255,0.75)';
+            this.colorDark  = 'rgba(110,180,255,0.7)';
+            this.shadowColor = 'rgba(35,55,190,0.3)';
+        }
+
+        function drawBall(ball) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
+            // 3D effect: radial gradient for ball highlight/shadow
+            let grad = ctx.createRadialGradient(ball.x-ball.radius/3, ball.y-ball.radius/3, ball.radius/3, ball.x, ball.y, ball.radius);
+            let isDark = document.body.classList.contains('dark');
+            grad.addColorStop(0, isDark ? "#fff" : "#c2e4ff");
+            grad.addColorStop(0.6, isDark ? ball.colorDark : ball.colorLight);
+            grad.addColorStop(1, ball.shadowColor);
+            ctx.fillStyle = grad;
+            ctx.shadowColor = ball.shadowColor;
+            ctx.shadowBlur = 21;
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function updateBalls() {
+            for (let ball of balls) {
+                ball.y += ball.speed;
+                if (ball.y - ball.radius > height) {
+                    ball.x = Math.random() * width;
+                    ball.y = -20 - Math.random() * 70;
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            for (let ball of balls) drawBall(ball);
+            updateBalls();
+            requestAnimationFrame(animate);
+        }
+
+        function initBalls(n=24) {
+            balls = [];
+            for (let i = 0; i < n; i++) balls.push(new Ball());
+        }
+        window.addEventListener('resize', () => {
+            resizeCanvas(); initBalls();
+        });
+        document.body.addEventListener('transitionend', () => initBalls());
+        // On mode switch, redraw with correct colors
+        btn.addEventListener('click', () => initBalls());
+
+        // Start animation
+        resizeCanvas();
+        initBalls();
+        animate();
+    </script>
+</body>
+</html>
