@@ -54,7 +54,6 @@ def contact():
             ws.append(['Name', 'Email', 'Feedback'])  # header
 
         ws.append([name, email, feedback])
-        # Set wrap text for the feedback column
         for row in ws.iter_rows(min_row=2, min_col=3, max_col=3):
             for cell in row:
                 cell.alignment = Alignment(wrap_text=True)
@@ -74,10 +73,7 @@ def contact():
             flash(f'Failed to send feedback by email but saved in Excel: {str(e)}', 'danger')
     return render_template('contact.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
-import os
-
+# Only ONE main block at the bottom!
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
