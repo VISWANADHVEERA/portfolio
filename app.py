@@ -8,7 +8,7 @@ from sendgrid.helpers.mail import Mail
 SENDGRID_API_KEY = "CEAGC9CENSYM41KL9BRJQ1YA"  # In production, set this as an environment variable
 
 app = Flask(__name__)
-app.secret_key = 'SENDGRID_API_KEY'  # Change to something secret
+app.secret_key = 'CEAGC9CENSYM41KL9BRJQ1YA'  # Change to something secret
 
 @app.route('/')
 def home():
@@ -69,8 +69,8 @@ def contact():
         # Send feedback email using SendGrid
         try:
             message = Mail(
-                from_email='your_verified_sender@example.com',  # Set an email verified on SendGrid
-                to_emails='iaviswanadhveera@gmail.com',
+                from_email='iamviswanadhveera@gmail.com',  # Set an email verified on SendGrid
+                to_emails='iamviswanadhveera@gmail.com,
                 subject='Portfolio Feedback',
                 html_content=f"<b>Name:</b> {name}<br><b>Email:</b> {email}<br><b>Feedback:</b><br>{feedback.replace(chr(10), '<br>')}"
             )
