@@ -70,7 +70,7 @@ def contact():
         try:
             message = Mail(
                 from_email='iamviswanadhveera@gmail.com',  # Set an email verified on SendGrid
-                to_emails='iamviswanadhveera@gmail.com,
+                to_emails='iamviswanadhveera@gmail.com',
                 subject='Portfolio Feedback',
                 html_content=f"<b>Name:</b> {name}<br><b>Email:</b> {email}<br><b>Feedback:</b><br>{feedback.replace(chr(10), '<br>')}"
             )
