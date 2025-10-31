@@ -5,10 +5,10 @@ import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
-SENDGRID_API_KEY = "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" # In production, set this as an environment variable
+SENDGRID_API_KEY = "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" # In production, set this as an environment variable
 
 app = Flask(__name__)
-app.secret_key = "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" # Change to something secret
+app.secret_key = "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" # Change to something secret
 
 @app.route('/')
 def home():
