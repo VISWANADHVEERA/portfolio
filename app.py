@@ -8,7 +8,7 @@ from sendgrid.helpers.mail import Mail
 SENDGRID_API_KEY = "CEAGC9CENSYM41KL9BRJQ1YA"  # In production, set this as an environment variable
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Change to something secret
+app.secret_key = 'SENDGRID_API_KEY'  # Change to something secret
 
 @app.route('/')
 def home():
